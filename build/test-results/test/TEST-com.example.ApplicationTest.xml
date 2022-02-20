@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.ApplicationTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-02-16T20:41:35" hostname="PCMW064" time="1.085">
+  <properties/>
+  <testcase name="access searched heroes endpoint, query non-existing hero, assert empty list as result" classname="com.example.ApplicationTest" time="1.025"/>
+  <testcase name="access non-existing endpoint, assert not found" classname="com.example.ApplicationTest" time="0.006"/>
+  <testcase name="access searched heroes endpoint, quary hero name, assert multiple hero result" classname="com.example.ApplicationTest" time="0.006"/>
+  <testcase name="access searched heroes endpoint, quary hero name, assert single hero result" classname="com.example.ApplicationTest" time="0.005"/>
+  <testcase name="access all heroes endpoint, quary all pages, assert correct information" classname="com.example.ApplicationTest" time="0.019"/>
+  <testcase name="access searched heroes endpoint, quary an empty hero name, assert empty list result" classname="com.example.ApplicationTest" time="0.007"/>
+  <testcase name="access all heroes endpoint, quary non-existing page number, assert an error" classname="com.example.ApplicationTest" time="0.005"/>
+  <testcase name="access root endpoint, assert correct information" classname="com.example.ApplicationTest" time="0.005"/>
+  <testcase name="access all heroes endpoint, quary invalid page number, assert an error" classname="com.example.ApplicationTest" time="0.005"/>
+  <system-out><![CDATA[2022-02-16 21:41:35.714 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
+2022-02-16 21:41:35.727 [Test worker] INFO  ktor.test - Application started in 0.088 seconds.
+2022-02-16 21:41:35.757 [Test worker] INFO  [Koin] - loaded 1 definitions - 2.4208 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
