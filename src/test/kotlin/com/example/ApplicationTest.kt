@@ -25,7 +25,7 @@ class ApplicationTest {
                     actual = response.status()
                 )
                 assertEquals(
-                    expected = "Welcome to Boruto API",
+                    expected = "Welcome to NBA API",
                     actual = response.content
                 )
             }
@@ -45,7 +45,7 @@ class ApplicationTest {
                 heroRepository.page5
             )
             pages.forEach { page ->
-                handleRequest(HttpMethod.Get, "/boruto/heroes?page=$page").apply {
+                handleRequest(HttpMethod.Get, "/nba/heroes?page=$page").apply {
                     assertEquals(
                         expected = HttpStatusCode.OK,
                         actual = response.status()
@@ -73,40 +73,13 @@ class ApplicationTest {
         }
     }
 
-    @ExperimentalSerializationApi
-    @Test
-    fun `access all heroes endpoint, quary non-existing page number, assert an error`() {
-        withTestApplication(moduleFunction = Application::module) {
-
-            handleRequest(HttpMethod.Get, "/boruto/heroes?page=6").apply {
-                assertEquals(
-                    expected = HttpStatusCode.NotFound,
-                    actual = response.status()
-                )
-                val expected = ApiResponse(
-                    success = false,
-                    message = "Heroes not found. Wrong Page Number"
-                )
-
-                val actual = Json.decodeFromString<ApiResponse>(response.content.toString())
-                println("Expected: $expected")
-                println("Actual: $actual")
-                assertEquals(
-                    expected = expected,
-                    actual = actual
-                )
-
-            }
-
-        }
-    }
 
     @ExperimentalSerializationApi
     @Test
     fun `access all heroes endpoint, quary invalid page number, assert an error`() {
         withTestApplication(moduleFunction = Application::module) {
 
-            handleRequest(HttpMethod.Get, "/boruto/heroes?page=invalid").apply {
+            handleRequest(HttpMethod.Get, "/nba/heroes?page=invalid").apply {
                 assertEquals(
                     expected = HttpStatusCode.BadRequest,
                     actual = response.status()
@@ -134,7 +107,7 @@ class ApplicationTest {
     fun `access searched heroes endpoint, quary hero name, assert single hero result`() {
         withTestApplication(moduleFunction = Application::module) {
 
-            handleRequest(HttpMethod.Get, "/boruto/heroes/search?name=sas").apply {
+            handleRequest(HttpMethod.Get, "/nba/heroes/search?name=kob").apply {
                 assertEquals(
                     expected = HttpStatusCode.OK,
                     actual = response.status()
@@ -156,7 +129,7 @@ class ApplicationTest {
     fun `access searched heroes endpoint, quary hero name, assert multiple hero result`() {
         withTestApplication(moduleFunction = Application::module) {
 
-            handleRequest(HttpMethod.Get, "/boruto/heroes/search?name=sa").apply {
+            handleRequest(HttpMethod.Get, "/nba/heroes/search?name=l").apply {
                 assertEquals(
                     expected = HttpStatusCode.OK,
                     actual = response.status()
@@ -164,7 +137,7 @@ class ApplicationTest {
                 val actual = Json.decodeFromString<ApiResponse>(response.content.toString()).heroes.size
 
                 assertEquals(
-                    expected = 3,
+                    expected = 8,
                     actual = actual
                 )
 
@@ -178,7 +151,7 @@ class ApplicationTest {
     fun `access searched heroes endpoint, quary an empty hero name, assert empty list result`() {
         withTestApplication(moduleFunction = Application::module) {
 
-            handleRequest(HttpMethod.Get, "/boruto/heroes/search?name=").apply {
+            handleRequest(HttpMethod.Get, "/nba/heroes/search?name=").apply {
                 assertEquals(
                     expected = HttpStatusCode.OK,
                     actual = response.status()
@@ -199,7 +172,7 @@ class ApplicationTest {
     fun `access searched heroes endpoint, query non-existing hero, assert empty list as result`() {
         withTestApplication(moduleFunction = Application::module) {
 
-            handleRequest(HttpMethod.Get, "/boruto/heroes/search?name=uknown").apply {
+            handleRequest(HttpMethod.Get, "/nba/heroes/search?name=uknown").apply {
                 assertEquals(
                     expected = HttpStatusCode.OK,
                     actual = response.status()

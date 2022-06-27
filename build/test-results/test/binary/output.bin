@@ -1,3 +1,3 @@
-u2022-02-16 21:41:35.714 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
-_2022-02-16 21:41:35.727 [Test worker] INFO  ktor.test - Application started in 0.088 seconds.
-W2022-02-16 21:41:35.757 [Test worker] INFO  [Koin] - loaded 1 definitions - 2.4208 ms
+u2022-06-27 08:09:09.774 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
+_2022-06-27 08:09:09.783 [Test worker] INFO  ktor.test - Application started in 0.069 seconds.
+W2022-06-27 08:09:09.809 [Test worker] INFO  [Koin] - loaded 1 definitions - 2.2563 ms
